@@ -24,7 +24,28 @@
 
         document.body.innerHTML += "<p>ios webview xxxxxxx : " + isAndroidView + "</p>";
 
+        var standalone = window.navigator.standalone,
+        userAgent = window.navigator.userAgent.toLowerCase(),
+        safari = /safari/.test(userAgent),
+        ios = /iphone|ipod|ipad/.test(userAgent);
 
+        if (ios) {
+        if (!standalone && safari) {
+            // Safari
+        } else if (!standalone && !safari) {
+            // iOS webview
+        document.body.innerHTML += "<p>ios webview 11111 : </p>";
+
+        };
+        } else {
+        if (userAgent.includes('wv')) {
+            // Android webview
+        document.body.innerHTML += "<p>and webview 11111 : </p>";
+
+        } else {
+            // Chrome
+        }
+        };
     </script>
 </body>
 </html>
