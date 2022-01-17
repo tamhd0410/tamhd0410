@@ -11,28 +11,15 @@
     <script>
 
         var isWebview = navigator.userAgent.toLowerCase().match(/android.*applewebkit(?=.*version)/)
+        var isWebviewAndroid = window.navigator.userAgent.toLowerCase().includes('wv')
 
-        if(isWebview) {
+
+        if(isWebview || isWebviewAndroid) {
             document.body.innerHTML += "<p>IsWebView</p>";
+            if(isWebviewAndroid) {
+                document.body.innerHTML += "<p>Android webview</p>";
+            }
         }
-
-        var standalone = window.navigator.standalone,
-        userAgent = window.navigator.userAgent.toLowerCase(),
-        safari = /safari/.test(userAgent),
-        ios = /iphone|ipod|ipad/.test(userAgent);
-
-        if (ios) {
-        if (!standalone && !safari) {
-            // iOS webview
-            document.body.innerHTML += "<p>IOS webview</p>";
-        };
-        } else {
-        if (userAgent.includes('wv')) {
-            // Android webview
-        document.body.innerHTML += "<p>Android webview</p>";
-
-        }
-        };
     </script>
 </body>
 </html>
