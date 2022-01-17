@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello My Name Tam</h1>
+    <h1>This is page detect Webview</h1>
     <script>
 
         var isWebview = navigator.userAgent.toLowerCase().match(/android.*applewebkit(?=.*version)/)
@@ -15,9 +15,9 @@
 
 
         if(isWebview || isWebviewAndroid) {
-            document.body.innerHTML += "<p>IsWebView</p>";
+            document.body.innerHTML += "<p>Webview</p>";
             if(isWebviewAndroid) {
-                document.body.innerHTML += "<p>Android webview</p>";
+                document.body.innerHTML += "<p>Is Android webview</p>";
             }
         }
     </script>
