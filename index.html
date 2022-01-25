@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>This is page detect Webview</h1>
+    <div id="where-am-i"></div>
     <script>
 
         var isWebview = navigator.userAgent.toLowerCase().match(/android.*applewebkit(?=.*version)/)
@@ -20,6 +21,35 @@
                 document.body.innerHTML += "<p>Is Android webview</p>";
             }
         }
+
+        var standalone = window.navigator.standalone,
+            userAgent = window.navigator.userAgent.toLowerCase(),
+            safari = /safari/.test( userAgent ),
+            ios = /iphone|ipod|ipad/.test( userAgent );
+
+        if( ios ) {
+            
+            if ( !standalone && safari ) {
+                
+                document.getElementById( 'where-am-i' ).textContent = 'browser';
+                
+            } else if ( standalone && !safari ) {
+                
+                document.getElementById( 'where-am-i' ).textContent = 'standalone';
+                
+            } else if ( !standalone && !safari ) {
+                
+                document.getElementById( 'where-am-i' ).textContent = 'uiwebview';
+                
+            };
+            
+        } else {
+            
+            document.getElementById( 'where-am-i' ).textContent = 'not iOS';
+            
+        };
+
+
     </script>
 </body>
 </html>
